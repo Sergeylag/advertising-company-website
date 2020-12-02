@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	
+	<!-- Favicons start -->
+	<link rel="icon" href="images/favicon/cropped-fav-32x32.png" sizes="32x32">
+	<link rel="icon" href="images/favicon/cropped-fav-192x192.png" sizes="192x192">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/cropped-fav-180x180.png">
+	<meta name="msapplication-TileImage" content="images/favicon/cropped-fav-270x270.png">
+	<!-- Favicons end -->
+	
+	<!-- Fonts start -->
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+	<!-- Fonts end -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Styles start -->
+	<!-- <link rel="stylesheet" href="https://rawgit.com/DSlike/JSlider/master/JSlider.css" /> -->
+	<!-- <link rel="stylesheet" href="css/style.min.css"> -->
+	<link type="text/css" rel="stylesheet" href="plp.css">
+
+	<!-- <link rel="stylesheet" href="https://alvarotrigo.com/pagePiling/jquery.pagepiling.css"> -->
+	<!-- Styles end -->
+	<title>Home</title>
+</head>
+<body>
+	
+<div class="sl_ctr">
+<div class="sldr">  
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Art_exo-02-small-680x340.jpg"/>
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Concept_Art_Thief_01-680x340.jpg"/>
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Concept_Art_Thief_07-680x340.jpg"/>
+</div>
+<div class="prv_b"></div>
+<div class="nxt_b"></div>
+</div>
+
+<script>
+$(function() {
+var sldr = $('.sldr'),
+sldrContent = sldr.html(),
+slideWidth = $('.sl_ctr').outerWidth(),
+slideCount = $('.sldr img').length,
+prv_b = $('.prv_b'),
+nxt_b = $('.nxt_b'),
+sldrInterval = 3300,
+
+animateTime = 1000,
+course = 1,
+margin = - slideWidth;
+
+console.log(slideCount)
+
+$('.sldr img:last').clone().prependTo('.sldr');$('.sldr img').eq(1).clone().appendTo('.sldr');$('.sldr').css('margin-left',-slideWidth);function nxt_bSlide(){interval=window.setInterval(animate,sldrInterval)}function animate(){if(margin==-slideCount*slideWidth-slideWidth){sldr.css({'marginLeft':-slideWidth});margin=-slideWidth*2}else if(margin==0&&course==-1){sldr.css({'marginLeft':-slideWidth*slideCount});margin=-slideWidth*slideCount+slideWidth}else{margin=margin-slideWidth*(course)}sldr.animate({'marginLeft':margin},animateTime)}function sldrStop(){window.clearInterval(interval)}prv_b.click(function(){if(sldr.is(':animated')){return false}var course2=course;course=-1;animate();course=course2});nxt_b.click(function(){if(sldr.is(':animated')){return false}var course2=course;course=1;animate();course=course2});sldr.add(nxt_b).add(prv_b).hover(function(){sldrStop()},nxt_bSlide);nxt_bSlide()
+
+});
+
+</script>
+</body>
+</html>

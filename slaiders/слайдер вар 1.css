@@ -1,0 +1,96 @@
+/* слайдер*/
+
+
+.slider23 {
+  position: relative;
+  width: 880px;
+  margin: 50px auto;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+}
+
+.slider23 input[name="switch"] {
+  display: none;
+}
+
+.switch {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  text-align: center;
+  width: 100%;
+}
+
+.switch label {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  margin: 0 3px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .8);
+  border-radius: 50%;
+  border: 5px solid #2f363c;
+  background-color: #738290;
+}
+
+#btn1:checked~.switch label[for="btn1"] {
+  background-color: white;
+}
+
+#btn2:checked~.switch label[for="btn2"] {
+  background-color: white;
+}
+
+#btn3:checked~.switch label[for="btn3"] {
+  background-color: white;
+}
+
+.slider-inner {
+  overflow: hidden;
+}
+
+.slides23 {
+  width: 300%;
+  transition: all 0.5s;
+}
+
+.slides23 img {
+  width: 880px;
+  height: 440px;
+  float: left;
+}
+
+#btn1:checked~slider-inner slides23 {
+  transform: translate(0);
+}
+
+#btn2:checked~.slider-inner .slides23 {
+  transform: translate(-880px);
+}
+
+#btn3:checked~.slider-inner .slides23 {
+  transform: translate(-1760px);
+}
+/*конец слайдера*/
+
+
+
+<div class="slider23">
+  <input type="radio" name="switch" id="btn1" checked>
+  <input type="radio" name="switch" id="btn2">
+  <input type="radio" name="switch" id="btn3">
+  
+  <div class="switch">
+    <label for="btn1"></label>
+    <label for="btn2"></label>
+    <label for="btn3"></label>
+  </div>
+  
+  <div class="slider-inner">
+    <div class="slides23">
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Art_exo-02-small-680x340.jpg"/>
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Concept_Art_Thief_01-680x340.jpg"/>
+      <img src="http://conceptartworld.com/wp-content/uploads/2013/10/Mathieu_Latour-Duhaime_Concept_Art_Thief_07-680x340.jpg"/>
+    </div>
+  </div>
+  
+</div>
